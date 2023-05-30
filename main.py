@@ -1,27 +1,29 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, Request
+import httpx
+import os
 
 app = FastAPI()
 
-class Msg(BaseModel):
-    msg: str
+appwrite_endpoint = os.environ['APPWRITE_ENDPOINT']
 
+@app.post("/projects/{project_id}/functions/{function_id}/executions")
+async def executions_post(request: Request, project_id: str, function_id: str):
+    body = (await request.body()).decode("utf-8")
+    authorization = request.headers["Authorization"]
+    bearer_token = ""
+    if " " in authorization:
+        bearer_token = authorization.split(" ")[1]
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World. Welcome to FastAPI!"}
+    async with httpx.AsyncClient() as client:
+        await client.post(
+            f"{appwrite_endpoint}/functions/{function_id}/executions",
+            headers={
+                "X-Appwrite-Project": project_id,
+                "X-Appwrite-Key": bearer_token,
+            },
+            data={
+                "data": body,
+            }
+        )
 
-
-@app.get("/path")
-async def demo_get():
-    return {"message": "This is /path endpoint, use a post request to transform the text to uppercase"}
-
-
-@app.post("/path")
-async def demo_post(inp: Msg):
-    return {"message": inp.msg.upper()}
-
-
-@app.get("/path/{path_id}")
-async def demo_get_path_id(path_id: int):
-    return {"message": f"This is /path/{path_id} endpoint, use post request to retrieve result"}
+    return {"success": True}
