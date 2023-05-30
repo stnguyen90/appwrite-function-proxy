@@ -12,4 +12,6 @@ Proxy to execute an [Appwrite](https://appwrite.io/) Function.
 ## 💁‍♀️ How to use
 
 - Deploy using the button 👆
-- Configure the `APPWRITE_ENDPOINT` environment variable
+- Configure the following environment variables:
+  - `APPWRITE_ENDPOINT`: Appwrite endpoint
+  - `APPWRITE_PROJECTS`: comma separated project IDs to allow using this proxy
