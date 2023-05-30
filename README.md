@@ -1,26 +1,15 @@
----
-title: Appwrite Function Proxy
-description: Proxy to execute an Appwrite Function
-tags:
-  - appwrite
-  - fastapi
-  - python
----
-
 # Appwrite Function Proxy
 
-Proxy to execute an Appwrite Function
+Proxy to execute an [Appwrite](https://appwrite.io/) Function.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/Ud6HvY?referralCode=g33k)
 
 ## ✨ Features
 
-- FastAPI
-- Python 3
+- Transforms generic requests to [create an Appwrite Function Execution](https://appwrite.io/docs/client/functions?sdk=web-default#functionsCreateExecution).
+- One proxy can be used to execute any project's function for the configured Appwrite instance
 
 ## 💁‍♀️ How to use
 
 - Deploy using the button 👆
-- Clone locally and install packages with Pip using `pip install -r requirements.txt` or Poetry using `poetry install`
-- Connect to your project using `railway link`
-- Run locally using `uvicorn main:app --reload`
+- Configure the `APPWRITE_ENDPOINT` environment variable
