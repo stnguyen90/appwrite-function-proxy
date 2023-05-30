@@ -20,7 +20,7 @@ async def executions_post(request: Request, project_id: str, function_id: str, r
         bearer_token = authorization.split(" ")[1]
 
     async with httpx.AsyncClient() as client:
-        await client.post(
+        r = await client.post(
             f"{appwrite_endpoint}/functions/{function_id}/executions",
             headers={
                 "X-Appwrite-Project": project_id,
@@ -30,5 +30,8 @@ async def executions_post(request: Request, project_id: str, function_id: str, r
                 "data": body,
             }
         )
-
-    return {"success": True}
+        execution = r.json()
+        return Response(
+            content=execution['response'],
+            status_code=execution['statusCode']
+        )

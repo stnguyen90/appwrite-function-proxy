@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "appwrite-function-proxy-template"
-version = "0.2.0"
+version = "0.3.0"
 description = "Proxy to execute an Appwrite Function."
 authors = ["Steven Nguyen"]
 license = "MIT"
