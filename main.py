@@ -1,13 +1,18 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 import httpx
 import os
 
 app = FastAPI()
 
 appwrite_endpoint = os.environ['APPWRITE_ENDPOINT']
+appwrite_projects = os.environ.get('APPWRITE_PROJECTS', '').split(',')
 
 @app.post("/projects/{project_id}/functions/{function_id}/executions")
-async def executions_post(request: Request, project_id: str, function_id: str):
+async def executions_post(request: Request, project_id: str, function_id: str, response: Response):
+    if appwrite_projects and project_id not in appwrite_projects:
+        response.status_code = 403
+        return {"success": False, "error": "Project not allowed"}
+
     body = (await request.body()).decode("utf-8")
     authorization = request.headers["Authorization"]
     bearer_token = ""
