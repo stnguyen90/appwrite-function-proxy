@@ -4,7 +4,7 @@ import os
 
 app = FastAPI()
 
-appwrite_endpoint = os.environ['APPWRITE_ENDPOINT']
+appwrite_endpoint = os.environ.get('APPWRITE_ENDPOINT', 'https://cloud.appwrite.io/v1')
 appwrite_projects = os.environ.get('APPWRITE_PROJECTS', '').split(',')
 
 @app.post("/projects/{project_id}/functions/{function_id}/executions")
