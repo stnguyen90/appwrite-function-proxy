@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "regions": ["fra1"],
   "builds": [
     {
       "src": "main.py",
