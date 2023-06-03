@@ -1,0 +1,32 @@
+{
+  "name": "appwrite-function-proxy",
+  "version": "1.0.0",
+  "description": "Proxy to execute an Appwrite Function.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stnguyen90/appwrite-function-proxy.git"
+  },
+  "keywords": [
+    "vercel",
+    "railway",
+    "appwrite",
+    "express",
+    "proxy"
+  ],
+  "author": "Steven Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stnguyen90/appwrite-function-proxy/issues"
+  },
+  "homepage": "https://github.com/stnguyen90/appwrite-function-proxy#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}

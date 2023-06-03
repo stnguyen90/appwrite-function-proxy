@@ -3,14 +3,14 @@
   "regions": ["fra1"],
   "builds": [
     {
-      "src": "main.py",
-      "use": "@vercel/python"
+      "src": "./index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "(.*)",
-      "dest": "main.py"
+      "src": "/projects/(.*)",
+      "dest": "/index.js"
     }
   ]
 }
