@@ -1,6 +1,9 @@
 {
   "version": 2,
   "regions": ["fra1"],
+  "github": {
+    "autoAlias": false
+  },
   "builds": [
     {
       "src": "./index.js",
