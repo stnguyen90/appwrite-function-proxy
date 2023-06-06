@@ -16,9 +16,8 @@ Proxy to execute an [Appwrite](https://appwrite.io/) Function.
 
 ### Setup
 
-1. Create a repo using [this template](https://github.com/stnguyen90/appwrite-function-proxy/generate)
-2. Deploy using the button 👆
-3. Configure the following environment variables:
+1. Deploy using a button 👆
+2. Configure the following environment variables:
    - `APPWRITE_ENDPOINT`: Appwrite endpoint
    - `APPWRITE_PROJECTS`: comma separated project IDs to allow using this proxy
 
